@@ -71,3 +71,5 @@ O painel administrativo abrirá automaticamente no seu navegador.
   * `dml.py`: Insert iniciais no banco de dados.
   * `dashboard.py`: Interface web para relatórios e cadastros.
   * `sistema_campus.db`: Arquivo do banco de dados (gerado automaticamente).
+
+<img width="1467" height="3720" alt="image" src="https://github.com/user-attachments/assets/fdaad20a-c608-4670-bf41-30642987607a" />

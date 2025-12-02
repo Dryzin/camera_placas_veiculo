@@ -72,4 +72,4 @@ O painel administrativo abrirá automaticamente no seu navegador.
   * `dashboard.py`: Interface web para relatórios e cadastros.
   * `sistema_campus.db`: Arquivo do banco de dados (gerado automaticamente).
 
-<img width="1467" height="3720" alt="image" src="https://github.com/user-attachments/assets/fdaad20a-c608-4670-bf41-30642987607a" />
+<img width="1593" height="4975" alt="diagrama" src="https://github.com/user-attachments/assets/c9d3ec2f-2cb9-430d-9ba7-33ed699eb54b" />

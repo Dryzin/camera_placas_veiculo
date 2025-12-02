@@ -40,7 +40,7 @@ def criar_interface_base():
     """Cria o canvas preto HD para desenharmos em cima"""
     img = np.zeros((ALTURA_TELA, LARGURA_TELA, 3), dtype=np.uint8)
     img[:] = COR_FUNDO
-    # Desenha a área do painel lateral
+
     cv2.rectangle(img, (800, 0), (LARGURA_TELA, ALTURA_TELA), COR_PAINEL, -1)
     return img
 
@@ -57,7 +57,7 @@ def processar_ocr_inteligente(img_recorte):
     
     canditatos = []
     
-    # 1. Tenta achar placa em uma linha só (Padrão Carro)
+    #  Tenta achar placa em uma linha só (Padrão Carro)
     for detection in result:
         texto = detection[1]
         limpo = ''.join(e for e in texto if e.isalnum()).upper()
@@ -65,7 +65,7 @@ def processar_ocr_inteligente(img_recorte):
             return limpo # Achou perfeito
         canditatos.append(limpo)
 
-    # 2. Estratégia Moto (Placa Mercosul Quadrada):
+    #  Estratégia Moto (Placa Mercosul Quadrada):
     # O OCR pode ler 'BRA' depois '2E19'. Vamos tentar juntar pedaços.
     texto_completo = "".join(canditatos)
     if len(texto_completo) >= 7:
@@ -162,12 +162,12 @@ def main():
 
         # --- MONTAGEM DA INTERFACE ---
         
-        # 1. Cola o vídeo da câmera na esquerda
+        #  Cola o vídeo da câmera na esquerda
         # Centraliza verticalmente (720 - 600) / 2 = 60
         y_offset = 60
         interface[y_offset:y_offset+600, 0:800] = frame_resized
 
-        # 2. Desenha o Painel de Informações (Direita)
+        #  Desenha o Painel de Informações (Direita)
         col_x = 830 # Margem esquerda do painel
         
         # Cabeçalho

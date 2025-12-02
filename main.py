@@ -8,8 +8,8 @@ from banco_dados import BancoDeDados
 # --- CONFIGURAÇÕES GERAIS ---
 LARGURA_TELA = 1280
 ALTURA_TELA = 720
-COR_FUNDO = (30, 30, 30)       # Cinza Escuro
-COR_PAINEL = (50, 50, 50)      # Cinza um pouco mais claro
+COR_FUNDO = (30, 30, 30)
+COR_PAINEL = (50, 50, 50)
 COR_TEXTO = (200, 200, 200)
 VERDE = (0, 255, 0)
 VERMELHO = (0, 0, 255)

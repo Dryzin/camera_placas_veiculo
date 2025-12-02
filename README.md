@@ -40,27 +40,23 @@ O sistema utiliza **SQLite** (arquivo local). Não é necessário instalar nenhu
 
 ## Executar
 
-O projeto roda em duas partes simultâneas: a **Câmera** (Visão) e o **Dashboard** (Gestão).
+O sistema possui um **Orquestrador de Inicialização (`start.py`)** que automatiza todo o processo. Ele verifica o banco de dados, inicia o servidor web em segundo plano e abre a interface de visão computacional simultaneamente.
 
-### Iniciar o Sistema de Visão
-
-Este script abre a câmera, detecta os veículos e registra os acessos.
+Basta abrir o terminal na pasta do projeto e executar um único comando:
 
 ```bash
-python main.py
+python start.py
 ```
 
-*(Pressione `Q` na janela da câmera para encerrar)*
+**O que vai acontecer:**
 
-### Iniciar o Dashboard (Relatórios)
+1.  **Verificação:** Se for a primeira vez, o sistema criará o banco de dados e cadastrará os usuários padrão automaticamente.
+2.  **Dashboard:** O navegador abrirá automaticamente com o Painel Administrativo.
+3.  **Câmera:** A janela do sistema de detecção (Carro/Moto) será aberta.
 
-Abra um **novo terminal** e execute:
+**Para encerrar:**
 
-```bash
-streamlit run dashboard.py
-```
-
-O painel administrativo abrirá automaticamente no seu navegador.
+  * Pressione a tecla **`Q`** na janela da câmera. O script encerrará automaticamente a câmera e o servidor do dashboard.
 
 -----
 
@@ -72,4 +68,4 @@ O painel administrativo abrirá automaticamente no seu navegador.
   * `dashboard.py`: Interface web para relatórios e cadastros.
   * `sistema_campus.db`: Arquivo do banco de dados (gerado automaticamente).
 
-<img width="1467" height="3720" alt="image" src="https://github.com/user-attachments/assets/fdaad20a-c608-4670-bf41-30642987607a" />
+<img width="1593" height="4975" alt="diagrama" src="https://github.com/user-attachments/assets/c9d3ec2f-2cb9-430d-9ba7-33ed699eb54b" />

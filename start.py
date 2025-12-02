@@ -27,11 +27,11 @@ def verificar_instalacao():
     print("-" * 30)
 
 def iniciar_sistema():
-    # 1. Verifica se precisa criar o banco
+  
     verificar_instalacao()
 
     try:
-        # 2. Inicia o Dashboard (Streamlit) em processo separado (background)
+        #  Inicia o Dashboard (Streamlit) em processo separado (background)
         print("Iniciando Dashboard (Aguarde abrir no navegador)...")
         # Usamos Popen para não travar o código aqui
         processo_dash = subprocess.Popen(["streamlit", "run", SCRIPT_DASHBOARD])
@@ -39,7 +39,7 @@ def iniciar_sistema():
         # Dá um tempinho para o servidor subir
         time.sleep(3)
 
-        # 3. Inicia o Script Principal (Câmera)
+        # Inicia o Script Principal (Câmera)
         print("Iniciando Sistema de Visão Computacional...")
         # Usamos run para que o Python ESPERE esse processo terminar antes de fechar tudo
         subprocess.run([sys.executable, SCRIPT_PRINCIPAL])

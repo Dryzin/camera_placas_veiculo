@@ -3,15 +3,14 @@ import sqlite3
 import pandas as pd
 import time
 
-# conf da pagina
+# Configuração da página
 st.set_page_config(page_title="Sistema de Controle Campus", layout="wide")
 
 st.title("Sistema de Gerenciamento de Acesso - IF MAchado")
 
-# select query para carregar dados do banco
+# Função para carregar dados do banco
 def carregar_dados():
     conn = sqlite3.connect('sistema_campus.db')
-    # Query de acesso com join para pegar dados do veículo
     query = """
     SELECT 
         a.id, 
@@ -33,24 +32,22 @@ menu = st.sidebar.selectbox("Menu", ["Monitoramento em Tempo Real", "Relatórios
 
 if menu == "Monitoramento em Tempo Real":
     st.subheader("Últimos Acessos Registrados")
-    st.info("Esta tabela atualiza automaticamente.")
     
     placeholder = st.empty()
     
-    # Simula atualização em tempo real
+    # Atualização em tempo real
     while True:
         df = carregar_dados()
         with placeholder.container():
-            # Mostra apenas os ultimos 10
             st.dataframe(df.head(10), use_container_width=True)
             
-            # Métricas Rápidas
+            # Métricas
             col1, col2, col3 = st.columns(3)
             col1.metric("Total de Acessos Hoje", len(df))
             col2.metric("Carros", len(df[df['tipo'] == 'CARRO']))
             col3.metric("Motos", len(df[df['tipo'] == 'MOTO']))
             
-        time.sleep(2) # Atualiza a cada 2 segundos
+        time.sleep(2)
 
 elif menu == "Relatórios":
     st.subheader("Histórico Completo para Consultas")
@@ -63,9 +60,9 @@ elif menu == "Relatórios":
         
     st.dataframe(df, use_container_width=True)
     
-    # Botão para baixar Excel/CSV
+    # Botão para baixar relatório
     st.download_button(
-        label="📥 Baixar Relatório (CSV)",
+        label="Baixar Relatório (CSV)",
         data=df.to_csv().encode('utf-8'),
         file_name='relatorio_acessos.csv',
         mime='text/csv',
@@ -73,7 +70,7 @@ elif menu == "Relatórios":
 
 elif menu == "Cadastrar Veículo":
     st.subheader("Novo Cadastro")
-    # Insert de usuario no banco
+    # Formulário de cadastro
     with st.form("cadastro"):
         placa = st.text_input("Placa")
         nome = st.text_input("Nome do Proprietário")
